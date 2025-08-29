@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 public partial class Pipes : Node2D
 {
-	const float SCROLL_SPEED = 120.0f;
+	const float SCROLL_SPEED = 180.0f;
 
 	[Export] private VisibleOnScreenNotifier2D _visibleNotifier;
 
