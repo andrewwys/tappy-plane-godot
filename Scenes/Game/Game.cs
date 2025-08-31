@@ -35,13 +35,18 @@ public partial class Game : Node2D
 		_pipesHolder.AddChild(newPipes);
 	}
 
-	private void GameOver()
+	public void StopPipes()
 	{
-		GD.Print("Game Over");
 		_spawnTimer.Stop();
 		foreach (Pipes pipe in _pipesHolder.GetChildren())
 		{
 			pipe.SetPhysicsProcess(false);
 		}
+	}
+
+	private void GameOver()
+	{
+		GD.Print("Game Over");
+		StopPipes();
 	}
 }

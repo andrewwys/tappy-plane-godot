@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Runtime.CompilerServices;
 
 public partial class Plane : CharacterBody2D
 {
@@ -42,11 +40,11 @@ public partial class Plane : CharacterBody2D
 		}
 	}
 
-	private void Die()
+	public void Die()
 	{
 		GD.Print("Plane Died");
-		EmitSignal(SignalName.OnPlaneDied);
 		_planeSprite.Stop();
 		SetPhysicsProcess(false);
+		EmitSignal(SignalName.OnPlaneDied);
 	}
 }

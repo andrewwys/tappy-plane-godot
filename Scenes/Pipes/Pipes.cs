@@ -8,10 +8,23 @@ public partial class Pipes : Node2D
 
 	[Export] private VisibleOnScreenNotifier2D _visibleNotifier;
 
+	private Area2D _upperPipe;
+	private Area2D _lowerPipe;
+	private Area2D _laser;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// Get Nodes
+		_upperPipe = GetNode<Area2D>("UpperPipe");
+		_lowerPipe = GetNode<Area2D>("LowerPipe");
+		_laser = GetNode<Area2D>("Laser");
+
+		// Connect signals
 		_visibleNotifier.ScreenExited += OnScreenExited;
+		_upperPipe.BodyEntered += OnPipeBodyEntered;
+		_lowerPipe.BodyEntered += OnPipeBodyEntered;
+		// _laser.BodyEntered += OnLaserBodyEntered;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,4 +37,13 @@ public partial class Pipes : Node2D
 	{
 		QueueFree();
 	}
+
+	private void OnPipeBodyEntered(Node2D body)
+	{
+		if (body is Plane)
+		{
+			GD.Print($"{body.Name} hit a pipe");
+			(body as Plane).Die();
+		}
+    }
 }
