@@ -24,7 +24,7 @@ public partial class Pipes : Node2D
 		_visibleNotifier.ScreenExited += OnScreenExited;
 		_upperPipe.BodyEntered += OnPipeBodyEntered;
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
-		// _laser.BodyEntered += OnLaserBodyEntered;
+		_laser.BodyEntered += OnLaserBodyEntered;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,5 +45,13 @@ public partial class Pipes : Node2D
 			GD.Print($"{body.Name} hit a pipe");
 			(body as Plane).Die();
 		}
-    }
+	}
+	
+	private void OnLaserBodyEntered(Node2D body)
+	{
+		if (body is Plane)
+		{
+			GD.Print($"{body.Name} hit a laser");
+		}
+	}
 }

@@ -3,7 +3,7 @@ using Godot;
 public partial class Plane : CharacterBody2D
 {
 	const float GRAVITY = 800.0f;
-	const float POWER = -400.0f;
+	const float POWER = -300.0f;
 
 	// Export event handler for plane hitting the floor or pipes
 	[Signal] public delegate void OnPlaneDiedEventHandler();
