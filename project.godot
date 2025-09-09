@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Tappy"
-run/main_scene="uid://26ctuavgo7yp"
+run/main_scene="uid://bg7yf0gr7at01"
 config/features=PackedStringArray("4.4", "C#", "Mobile")
 run/max_fps=100
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Global/GameManager.cs"
 
 [display]
 

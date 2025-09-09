@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Game : Node2D
 {
@@ -9,6 +8,8 @@ public partial class Game : Node2D
 	[Export] private PackedScene _pipesScene;
 	[Export] private Timer _spawnTimer;
 	[Export] private Plane _plane;
+
+	private bool _isGameOver = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,6 +22,10 @@ public partial class Game : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if ((Input.IsActionJustPressed("fly") && _isGameOver) || Input.IsKeyPressed(Key.Escape))
+		{
+			GameManager.LoadMain();
+		}
 	}
 
 	public float GetRandomY()
@@ -48,5 +53,6 @@ public partial class Game : Node2D
 	{
 		GD.Print("Game Over");
 		StopPipes();
+		_isGameOver = true;
 	}
 }
