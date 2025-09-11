@@ -6,7 +6,7 @@ public partial class Plane : CharacterBody2D
 	const float POWER = -300.0f;
 
 	// Export event handler for plane hitting the floor or pipes
-	[Signal] public delegate void OnPlaneDiedEventHandler();
+	
 
 	[Export] private AnimationPlayer _animationPlayer;
 	[Export] private AnimatedSprite2D _planeSprite;
@@ -45,6 +45,6 @@ public partial class Plane : CharacterBody2D
 		GD.Print("Plane Died");
 		_planeSprite.Stop();
 		SetPhysicsProcess(false);
-		EmitSignal(SignalName.OnPlaneDied);
+		SignalManager.EmitOnPlaneDied();
 	}
 }

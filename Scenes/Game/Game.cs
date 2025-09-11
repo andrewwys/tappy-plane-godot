@@ -7,7 +7,6 @@ public partial class Game : Node2D
 	[Export] private Node2D _pipesHolder;
 	[Export] private PackedScene _pipesScene;
 	[Export] private Timer _spawnTimer;
-	[Export] private Plane _plane;
 
 	private bool _isGameOver = false;
 
@@ -15,8 +14,13 @@ public partial class Game : Node2D
 	public override void _Ready()
 	{
 		_spawnTimer.Timeout += SpawnPipes;
-		_plane.OnPlaneDied += GameOver;
+		SignalManager.Instance.OnPlaneDied += GameOver;
 		SpawnPipes();
+	}
+
+	public override void _ExitTree()
+	{
+		SignalManager.Instance.OnPlaneDied -= GameOver;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
