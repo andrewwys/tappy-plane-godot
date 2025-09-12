@@ -25,6 +25,18 @@ public partial class Pipes : Node2D
 		_upperPipe.BodyEntered += OnPipeBodyEntered;
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyEntered += OnLaserBodyEntered;
+
+		SignalManager.Instance.OnPlaneDied += OnPlaneDied;
+	}
+
+	public override void _ExitTree()
+	{
+		SignalManager.Instance.OnPlaneDied -= OnPlaneDied;
+	}
+
+	private void OnPlaneDied()
+	{
+		SetPhysicsProcess(false);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

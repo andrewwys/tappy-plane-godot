@@ -4,7 +4,7 @@ public partial class Game : Node2D
 {
 	[Export] private Marker2D _spawnUpper;
 	[Export] private Marker2D _spawnLower;
-	[Export] private Node2D _pipesHolder;
+	// [Export] private Node2D _pipesHolder;
 	[Export] private PackedScene _pipesScene;
 	[Export] private Timer _spawnTimer;
 
@@ -41,16 +41,13 @@ public partial class Game : Node2D
 	{
 		var newPipes = _pipesScene.Instantiate<Pipes>();
 		newPipes.Position = new Vector2(_spawnLower.GlobalPosition.X, GetRandomY());
-		_pipesHolder.AddChild(newPipes);
+		// _pipesHolder.AddChild(newPipes);
+		AddChild(newPipes);
 	}
 
 	public void StopPipes()
 	{
 		_spawnTimer.Stop();
-		foreach (Pipes pipe in _pipesHolder.GetChildren())
-		{
-			pipe.SetPhysicsProcess(false);
-		}
 	}
 
 	private void GameOver()
