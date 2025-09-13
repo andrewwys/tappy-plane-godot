@@ -21,6 +21,7 @@ public partial class GameManager : Node
 
 	public static void LoadGame()
 	{
+		ScoreManager.ResetScore();
 		Instance.GetTree().ChangeSceneToPacked(Instance._gameScene);
 	} 
 }

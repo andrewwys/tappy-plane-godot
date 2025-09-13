@@ -64,6 +64,8 @@ public partial class Pipes : Node2D
 		if (body is Plane)
 		{
 			GD.Print($"{body.Name} hit a laser");
+			ScoreManager.IncrementScore();
+			GD.Print($"Score: {ScoreManager.GetScore()}, High Score: {ScoreManager.GetHighScore()}");
 		}
 	}
 }

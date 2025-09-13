@@ -52,7 +52,7 @@ public partial class Game : Node2D
 
 	private void GameOver()
 	{
-		GD.Print("Game Over");
+		GD.Print($"Game Over. Score: {ScoreManager.GetScore()}	");
 		StopPipes();
 		_isGameOver = true;
 	}
