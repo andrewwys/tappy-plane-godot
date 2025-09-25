@@ -31,11 +31,12 @@ public partial class ScoreManager : Node
 		{
 			Instance._highScore = score;
 		}
+		SignalManager.EmitOnScored();
 	}
 
 	public static void ResetScore()
 	{
-		Instance._score = 0;
+		SetScore(0);
 	}
 
 	public static void IncrementScore()
