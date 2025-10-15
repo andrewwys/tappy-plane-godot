@@ -5,6 +5,8 @@ public partial class GameManager : Node
 {
 	public static GameManager Instance { get; private set; }
 
+	public const float SCROLL_SPEED = 180.0f;
+
 	private PackedScene _gameScene = GD.Load<PackedScene>("res://Scenes/Game/Game.tscn");
 	private PackedScene _mainScene = GD.Load<PackedScene>("res://Scenes/Main/Main.tscn");
 

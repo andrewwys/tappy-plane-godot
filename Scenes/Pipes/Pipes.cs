@@ -4,8 +4,6 @@ using System.Runtime.Serialization;
 
 public partial class Pipes : Node2D
 {
-	const float SCROLL_SPEED = 180.0f;
-
 	[Export] private VisibleOnScreenNotifier2D _visibleNotifier;
 
 	private Area2D _upperPipe;
@@ -42,7 +40,7 @@ public partial class Pipes : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		Position += new Vector2(-SCROLL_SPEED * (float)delta, 0);
+		Position += new Vector2(-GameManager.SCROLL_SPEED * (float)delta, 0);
 	}
 
 	public void OnScreenExited()

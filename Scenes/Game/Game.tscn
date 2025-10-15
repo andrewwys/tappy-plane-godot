@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://26ctuavgo7yp"]
+[gd_scene load_steps=9 format=3 uid="uid://26ctuavgo7yp"]
 
 [ext_resource type="Texture2D" uid="uid://gigxuiuhg8fq" path="res://assets/background/rocks_2.png" id="1_rdw05"]
 [ext_resource type="Script" uid="uid://bqquxbeuhduvo" path="res://Scenes/Game/Game.cs" id="1_y3kpf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blr460v52i88p" path="res://Scenes/Pipes/Pipes.tscn" id="4_ln2h6"]
 [ext_resource type="PackedScene" uid="uid://bavp416lm7r5b" path="res://Scenes/Hud/Hud.tscn" id="6_3k6gv"]
 [ext_resource type="PackedScene" uid="uid://b44l18ucrnv3e" path="res://Scenes/GameOver/GameOver.tscn" id="7_1q8bt"]
+[ext_resource type="PackedScene" uid="uid://cbrrg28r53k6b" path="res://Scenes/ParallaxBackground/ParallaxBackground.tscn" id="8_gvja8"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer")]
 script = ExtResource("1_y3kpf")
@@ -16,6 +17,7 @@ _pipesScene = ExtResource("4_ln2h6")
 _spawnTimer = NodePath("SpawnTimer")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(218, 348)
 texture = ExtResource("1_rdw05")
 
@@ -46,5 +48,7 @@ autostart = true
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("7_1q8bt")]
 visible = false
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("8_gvja8")]
 
 [editable path="Plane"]

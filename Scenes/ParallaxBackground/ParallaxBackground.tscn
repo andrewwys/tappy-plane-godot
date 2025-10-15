@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbrrg28r53k6b"]
+
+[ext_resource type="PackedScene" uid="uid://doyjyjrcbvcyr" path="res://Scenes/ParallaxImage/ParallaxImage.tscn" id="1_2hd62"]
+[ext_resource type="Texture2D" uid="uid://0345c2huhukt" path="res://assets/background/sky.png" id="2_0qt7h"]
+[ext_resource type="Texture2D" uid="uid://bqxi8b5qiv2bv" path="res://assets/background/clouds_1.png" id="3_u4d6q"]
+[ext_resource type="Texture2D" uid="uid://ca4486706rtl4" path="res://assets/background/clouds_2.png" id="4_2706f"]
+[ext_resource type="Texture2D" uid="uid://tf3brqvepgot" path="res://assets/background/rocks_1.png" id="5_3drjv"]
+[ext_resource type="Texture2D" uid="uid://gigxuiuhg8fq" path="res://assets/background/rocks_2.png" id="6_abwcj"]
+
+[node name="ParallaxBackground" type="Node2D"]
+z_index = -100
+
+[node name="ParallaxImage" parent="." instance=ExtResource("1_2hd62")]
+_scrTexture = ExtResource("2_0qt7h")
+_speedScale = 0.1
+
+[node name="ParallaxImage2" parent="." instance=ExtResource("1_2hd62")]
+_scrTexture = ExtResource("3_u4d6q")
+_speedScale = 0.2
+
+[node name="ParallaxImage3" parent="." instance=ExtResource("1_2hd62")]
+_scrTexture = ExtResource("4_2706f")
+_speedScale = 0.25
+
+[node name="ParallaxImage4" parent="." instance=ExtResource("1_2hd62")]
+_scrTexture = ExtResource("5_3drjv")
+_speedScale = 0.6
+
+[node name="ParallaxImage5" parent="." instance=ExtResource("1_2hd62")]
+_scrTexture = ExtResource("6_abwcj")
+_speedScale = 0.75
